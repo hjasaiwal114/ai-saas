@@ -22,14 +22,14 @@ export async function POST(
       }
       
       if (!configuration.apiKey) {
-        return new NextResponse("OpenAI API key not cofigures", { status: 500 })''
+        return new NextResponse("OpenAI API key not cofigures", { status: 500 });
       }
 
       if (!messages) {
         return new NextResponse("Message are required", {status: 400});
       }
 
-      const response = await openai.createChatCompletion({
+      const response = await openai.createCompletion({
         model: "gpt-3.5-turbo",
         messages
       });
